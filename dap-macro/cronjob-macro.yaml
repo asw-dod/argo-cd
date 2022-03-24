@@ -1,0 +1,35 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: deu-dap-macro
+  namespace: dod-dashboard
+spec:
+  schedule: "0 1,9 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: dap-macro
+            image: aoikazto/load-dap:1.0.4
+            env:
+              - name: GITHUB_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: secret-deu-dap-macro
+                    key: TOKEN
+              - name: DEU_ID_CHACHA
+                valueFrom:
+                  secretKeyRef:
+                    name: secret-deu-dap-macro
+                    key: DEU_ID
+              - name: DEU_PW_CHACHA
+                valueFrom:
+                  secretKeyRef:
+                    name: secret-deu-dap-macro
+                    key: DEU_PW
+              - name: ORG_NAME
+                value: "asw-dod"
+              - name: REPO_NAME
+                value: "dap-macro"
+          restartPolicy: Never
