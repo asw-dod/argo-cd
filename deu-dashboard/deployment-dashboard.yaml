@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dod-dashboard-deployment
+  labels:
+    app: dod-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dod-dashboard
+  template:
+    metadata:
+      labels:
+        app: dod-dashboard
+    spec:
+      containers:
+        - name: server-dod
+          image: inmd1/dod:0.0.4
+          ports:
+            - containerPort: 8080
