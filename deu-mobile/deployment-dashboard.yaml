@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dod-mobile-deployment
+  labels:
+    app: dod-mobile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dod-mobile
+  template:
+    metadata:
+      labels:
+        app: dod-mobile
+    spec:
+      containers:
+        - name: server-dod
+          image: inmd1/dod:0.0.5
+          ports:
+            - containerPort: 8080
