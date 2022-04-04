@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: server-dod
-          image: inmd1/dod:0.0.5
+          image: inmd1/dod:0.0.6
           ports:
             - containerPort: 8080
