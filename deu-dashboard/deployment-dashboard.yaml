@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: server-dod
-          image: inmd1/dod-dashboard:0.2.7
+          image: inmd1/dod-dashboard:0.2.8
           ports:
             - containerPort: 80
