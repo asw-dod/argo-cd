@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: server-dod
-          image: aoikazto/deu-door-api:1.0.1
+          image: aoikazto/deu-door-api:1.0.2
           ports:
             - containerPort: 8080
 ---
